@@ -5,6 +5,9 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject soundPanel;
     private bool soundPanelVisible = false;
+
+    public GameObject creditsPanel;
+    private bool creditsPanelVisible = false;
     public void ToggleSoundPanel()
     {
         soundPanelVisible = !soundPanelVisible;
@@ -13,11 +16,6 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
-    }
-
-    public void OpenCredits()
-    {
-        SceneManager.LoadScene("CreditsScene");
     }
 
     public void ExitGame()
@@ -37,6 +35,22 @@ public class MenuManager : MonoBehaviour
         {
             CloseSoundPanel();
         }
+        else if (creditsPanelVisible && Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseCreditsPanel();
+        }
+    }
+
+    public void OpenCreditsPanel()
+    {
+        creditsPanelVisible = true;
+        creditsPanel.SetActive(true);
+    }
+
+    public void CloseCreditsPanel()
+    {
+        creditsPanelVisible = false;
+        creditsPanel.SetActive(false);
     }
 
 }
