@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -17,11 +18,19 @@ public class GameController : MonoBehaviour
     public TMP_Text maskedWordText;
     public TMP_InputField inputField;
     public TMP_Text timerText;
-    public GameObject restartButton;
     public TMP_Text feedbackText;
+
+    public GameObject gameOverPanel;
+    public GameObject pausePanel;
+
+    public GameObject restartButton_GameOver;
+    public GameObject restartButton_Pause;
 
     [Header("Word Data")]
     public List<WordEntry> wordList = new List<WordEntry>();
+
+    private List<WordEntry> shuffledList;
+    private int currentWordIndex = 0;
 
     private WordEntry currentWord;
     private float timer = 10f;
@@ -29,19 +38,45 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        SetupWordList();          
-        PickRandomWord();         
-        restartButton.SetActive(false); 
-        isGameActive = true;     
+        SetupWordList();
+        shuffledList = new List<WordEntry>(wordList);
+        ShuffleWordList(shuffledList);
+        currentWordIndex = 0;
+
+        PickNextWord();
+
+        // Set all panels and game state
+        gameOverPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        isGameActive = true;
+
+        // No need to set buttons manually here if they're already active
     }
 
     private void Update()
     {
+        // Toggle pause panel with Escape
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!pausePanel.activeSelf)
+            {
+                pausePanel.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                pausePanel.SetActive(false);
+                Time.timeScale = 1f;
+            }
+        }
+
         if (!isGameActive) return;
 
+        // Timer countdown
         timer -= Time.deltaTime;
         timerText.text = timer.ToString("F1") + "s";
 
+        // Input checking
         string guess = inputField.text.Trim().ToLower();
         if (guess == currentWord.fullWord.ToLower())
         {
@@ -50,7 +85,7 @@ public class GameController : MonoBehaviour
             Invoke(nameof(ClearFeedback), 1f);
 
             inputField.text = "";
-            PickRandomWord(); 
+            PickNextWord();
         }
 
         if (timer <= 0)
@@ -59,10 +94,16 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void PickRandomWord()
+    private void PickNextWord()
     {
-        int index = Random.Range(0, wordList.Count);
-        currentWord = wordList[index];
+        if (currentWordIndex >= shuffledList.Count)
+        {
+            ShuffleWordList(shuffledList);
+            currentWordIndex = 0;
+        }
+
+        currentWord = shuffledList[currentWordIndex];
+        currentWordIndex++;
 
         hintText.text = "Hint: " + currentWord.hint;
         maskedWordText.text = MaskWord(currentWord.fullWord);
@@ -91,22 +132,51 @@ public class GameController : MonoBehaviour
     private void EndGame()
     {
         isGameActive = false;
+        Time.timeScale = 1f;
+        gameOverPanel.SetActive(true);
         maskedWordText.text = "The word was: " + currentWord.fullWord;
-        restartButton.SetActive(true);
     }
 
     public void RestartGame()
     {
         inputField.text = "";
         feedbackText.text = "";
-        restartButton.SetActive(false);
-        PickRandomWord();
+        gameOverPanel.SetActive(false);
+        pausePanel.SetActive(false);
+
+        ShuffleWordList(shuffledList);
+        currentWordIndex = 0;
+        PickNextWord();
+
         isGameActive = true;
+        Time.timeScale = 1f;
+    }
+
+    public void RestartGameFromMenu()
+    {
+        RestartGame();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void ClearFeedback()
     {
         feedbackText.text = "";
+    }
+
+    private void ShuffleWordList(List<WordEntry> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            WordEntry temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
     }
 
     private void SetupWordList()
@@ -127,17 +197,6 @@ public class GameController : MonoBehaviour
             new WordEntry { fullWord = "Doom", hint = "Classic FPS with demons" },
             new WordEntry { fullWord = "Halo", hint = "Sci-fi shooter with Master Chief" },
             new WordEntry { fullWord = "Kirby", hint = "Cute pink puff who swallows enemies" },
-            new WordEntry { fullWord = "Sims", hint = "Life simulation game" },
-            new WordEntry { fullWord = "Minecraft", hint = "Blocky sandbox, build anything" },
-            new WordEntry { fullWord = "Amongus", hint = "Who’s the imposter?" },
-            new WordEntry { fullWord = "Spyro", hint = "Purple dragon who breathes fire" },
-            new WordEntry { fullWord = "Ryu", hint = "Fights in Street Fighter" },
-            new WordEntry { fullWord = "Pikachu", hint = "Iconic electric Pokémon" },
-            new WordEntry { fullWord = "Luigi", hint = "Mario’s taller, greener brother" },
-            new WordEntry { fullWord = "Kratos", hint = "Angry bald guy with a red tattoo" },
-            new WordEntry { fullWord = "Portalgun", hint = "Shoots portals (from Portal)" },
-            new WordEntry { fullWord = "Flappy", hint = "Very annoying bird that keeps dying" },
-            new WordEntry { fullWord = "Snake", hint = "Solid or Liquid? Stealthy dude" },
         };
     }
 }
