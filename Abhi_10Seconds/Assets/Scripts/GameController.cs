@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public class WordEntry
     {
         public string fullWord;
-        public string hint;
+        public List<string> hints;
     }
 
     public TMP_Text hintText;
@@ -141,7 +141,8 @@ public class GameController : MonoBehaviour
         };
         for (int i = 0; i < data.GetLength(0); i++)
         {
-            wordList.Add(new WordEntry { fullWord = data[i, 0], hint = data[i, 1] });
+            wordList.Add(new WordEntry { fullWord = data[i, 0], hints = new List<string> { data[i, 1] } });
+
         }
     }
 
@@ -176,7 +177,8 @@ public class GameController : MonoBehaviour
         };
         for (int i = 0; i < data.GetLength(0); i++)
         {
-            wordList.Add(new WordEntry { fullWord = data[i, 0], hint = data[i, 1] });
+            wordList.Add(new WordEntry { fullWord = data[i, 0], hints = new List<string> { data[i, 1] } });
+
         }
     }
 
@@ -211,7 +213,8 @@ public class GameController : MonoBehaviour
         };
         for (int i = 0; i < data.GetLength(0); i++)
         {
-            wordList.Add(new WordEntry { fullWord = data[i, 0], hint = data[i, 1] });
+            wordList.Add(new WordEntry { fullWord = data[i, 0], hints = new List<string> { data[i, 1] } });
+
         }
     }
 
@@ -246,44 +249,240 @@ public class GameController : MonoBehaviour
         };
         for (int i = 0; i < data.GetLength(0); i++)
         {
-            wordList.Add(new WordEntry { fullWord = data[i, 0], hint = data[i, 1] });
+            wordList.Add(new WordEntry { fullWord = data[i, 0], hints = new List<string> { data[i, 1] } });
+
         }
     }
 
     private void AddSmartWords()
     {
-        string[,] data = {
-            {"Algorithm", "Step-by-step solution"},
-            {"Paradox", "A logical contradiction"},
-            {"Enigma", "Something mysterious or puzzling"},
-            {"Labyrinth", "Complex maze"},
-            {"Cipher", "Secret code"},
-            {"Obsidian", "Volcanic glass"},
-            {"Chronology", "Order of events"},
-            {"Quantum", "Smallest unit in physics"},
-            {"Aesthetic", "Related to beauty"},
-            {"Hypothesis", "Educated guess"},
-            {"Oxymoron", "Two contradictory terms"},
-            {"Epitome", "Perfect example of something"},
-            {"Synthesis", "Combining different elements"},
-            {"Catalyst", "Triggers change"},
-            {"Obsolete", "No longer useful"},
-            {"Mirage", "Optical illusion"},
-            {"Binary", "Made of 1s and 0s"},
-            {"Pinnacle", "Highest point"},
-            {"Quandary", "Difficult situation"},
-            {"Nostalgia", "Sentimental longing for the past"},
-            {"Ambiguous", "Open to multiple meanings"},
-            {"Nebula", "Cloud of gas in space"},
-            {"Conundrum", "A confusing or difficult problem"},
-            {"Constellation", "Group of stars forming a pattern"},
-            {"Parallax", "Difference in viewpoint"}
-        };
-        for (int i = 0; i < data.GetLength(0); i++)
+        wordList.Add(new WordEntry
         {
-            wordList.Add(new WordEntry { fullWord = data[i, 0], hint = data[i, 1] });
+            fullWord = "Algorithm",
+            hints = new List<string> {
+            "Step-by-step solution",
+            "Like a recipe for computers",
+            "Used in programming and AI"
         }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Paradox",
+            hints = new List<string> {
+            "A logical contradiction",
+            "Seems false but may be true",
+            "Like 'This statement is false'"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Enigma",
+            hints = new List<string> {
+            "Something mysterious or puzzling",
+            "Hard to understand",
+            "Also a famous WW2 code machine"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Labyrinth",
+            hints = new List<string> {
+            "Complex maze",
+            "Twisting paths, hard to escape",
+            "Found in Greek mythology"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Cipher",
+            hints = new List<string> {
+            "Secret code",
+            "Used in encryption",
+            "Requires a key to decode"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Obsidian",
+            hints = new List<string> {
+            "Volcanic glass",
+            "Black and shiny",
+            "Used in crafting in Minecraft"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Chronology",
+            hints = new List<string> {
+            "Order of events",
+            "Timeline-based",
+            "Used in history and storytelling"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Quantum",
+            hints = new List<string> {
+            "Smallest unit in physics",
+            "Subatomic particle theory",
+            "Often used in sci-fi and tech"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Aesthetic",
+            hints = new List<string> {
+            "Related to beauty",
+            "Often about visual style",
+            "Used in design and art"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Hypothesis",
+            hints = new List<string> {
+            "Educated guess",
+            "Starting point for experiments",
+            "Needs testing to confirm"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Oxymoron",
+            hints = new List<string> {
+            "Two contradictory terms",
+            "Like 'jumbo shrimp' or 'deafening silence'",
+            "Common in poetry and humor"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Epitome",
+            hints = new List<string> {
+            "Perfect example of something",
+            "Ideal representation",
+            "Like the poster child of something"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Synthesis",
+            hints = new List<string> {
+            "Combining different elements",
+            "Opposite of analysis",
+            "Happens in writing and chemistry"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Catalyst",
+            hints = new List<string> {
+            "Triggers change",
+            "Speeds up a reaction",
+            "Doesn’t get consumed"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Obsolete",
+            hints = new List<string> {
+            "No longer useful",
+            "Outdated technology",
+            "Like floppy disks or VHS tapes"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Mirage",
+            hints = new List<string> {
+            "Optical illusion",
+            "Seen in deserts",
+            "Looks real but isn’t"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Binary",
+            hints = new List<string> {
+            "Made of 1s and 0s",
+            "Digital language",
+            "Has only two states"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Pinnacle",
+            hints = new List<string> {
+            "Highest point",
+            "Top of a career or achievement",
+            "Like reaching a mountain peak"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Quandary",
+            hints = new List<string> {
+            "Difficult situation",
+            "Confusing dilemma",
+            "Hard to make a decision"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Nostalgia",
+            hints = new List<string> {
+            "Sentimental longing for the past",
+            "Triggered by old songs or places",
+            "Often a warm or bittersweet feeling"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Ambiguous",
+            hints = new List<string> {
+            "Open to multiple meanings",
+            "Not clearly defined",
+            "Can lead to misinterpretation"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Nebula",
+            hints = new List<string> {
+            "Cloud of gas in space",
+            "Birthplace of stars",
+            "Often seen in deep space photos"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Conundrum",
+            hints = new List<string> {
+            "A confusing or difficult problem",
+            "No obvious solution",
+            "Like a riddle or puzzle"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Constellation",
+            hints = new List<string> {
+            "Group of stars forming a pattern",
+            "Often named after myths",
+            "Used in astrology and navigation"
+        }
+        });
+        wordList.Add(new WordEntry
+        {
+            fullWord = "Parallax",
+            hints = new List<string> {
+            "Difference in viewpoint",
+            "Used to measure distance in space",
+            "Common in 3D games and astronomy"
+        }
+        });
     }
+
 
     private void PickNextWord()
     {
@@ -296,7 +495,15 @@ public class GameController : MonoBehaviour
         currentWord = shuffledList[currentWordIndex];
         currentWordIndex++;
 
-        hintText.text = "Hint: " + currentWord.hint;
+        if (GameData.selectedCategory == WordCategory.Smart && currentWord.hints.Count > 1)
+        {
+            hintText.text = "Hints:\n- " + string.Join("\n- ", currentWord.hints);
+        }
+        else
+        {
+            hintText.text = "Hint: " + currentWord.hints[0];
+        }
+
         maskedWordText.text = MaskWord(currentWord.fullWord);
         timer = 10f;
     }
