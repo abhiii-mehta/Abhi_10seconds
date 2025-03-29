@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameController : MonoBehaviour
 {
@@ -274,15 +275,7 @@ public class GameController : MonoBehaviour
         "Opposite of fission"
     }
         });
-        wordList.Add(new WordEntry
-        {
-            fullWord = "Symbol",
-            hints = new List<string> {
-        "Represents something else",
-        "Can be a letter or sign",
-        "Like $ or ❤️"
-    }
-        });
+        
         wordList.Add(new WordEntry
         {
             fullWord = "Echo",
@@ -528,16 +521,26 @@ public class GameController : MonoBehaviour
             masked[charIndex] = '_';
         }
 
-        return new string(masked);
+        return string.Join(" ", masked).ToUpper();
+
     }
 
     private void EndGame()
     {
         isGameActive = false;
         Time.timeScale = 1f;
+
+        feedbackText.text = $"Time's up! The word was: {currentWord.fullWord.ToUpper()}";
+        StartCoroutine(ShowGameOverAfterDelay(2f));
+    }
+
+    private IEnumerator ShowGameOverAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         gameOverPanel.SetActive(true);
         maskedWordText.text = "The word was: " + currentWord.fullWord;
     }
+
 
     public void RestartGame()
     {
