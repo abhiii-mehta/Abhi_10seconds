@@ -302,6 +302,7 @@ MonoBehaviour:
   creditsPanel: {fileID: 1537697382}
   mainMenuPanel: {fileID: 1129054235}
   categoryPanel: {fileID: 1216253615}
+  CategoryPanel: {fileID: 1216253615}
 --- !u!4 &118929935
 Transform:
   m_ObjectHideFlags: 0

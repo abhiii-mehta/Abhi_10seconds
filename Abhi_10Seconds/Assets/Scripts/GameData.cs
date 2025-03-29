@@ -10,4 +10,6 @@ public enum WordCategory
 public static class GameData
 {
     public static WordCategory selectedCategory;
+    public static bool returningToCategory = false;
+
 }

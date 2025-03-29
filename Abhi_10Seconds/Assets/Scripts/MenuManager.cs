@@ -82,4 +82,20 @@ public class MenuManager : MonoBehaviour
             BackToMainMenu();
         }
     }
+    public GameObject CategoryPanel;
+
+    private void Start()
+    {
+        if (GameData.returningToCategory)
+        {
+            ShowCategoryPanel();
+            GameData.returningToCategory = false;
+        }
+    }
+
+    private void ShowCategoryPanel()
+    {
+        categoryPanel.SetActive(true);
+    }
+
 }

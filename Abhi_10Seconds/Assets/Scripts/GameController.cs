@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
 
     public GameObject gameOverPanel;
     public GameObject pausePanel;
+    public GameObject victoryPanel;
+
 
     public GameObject restartButton_GameOver;
     public GameObject restartButton_Pause;
@@ -482,8 +484,8 @@ public class GameController : MonoBehaviour
     {
         if (currentWordIndex >= shuffledList.Count)
         {
-            ShuffleWordList(shuffledList);
-            currentWordIndex = 0;
+            ShowVictoryPanel();
+            return;
         }
 
         currentWord = shuffledList[currentWordIndex];
@@ -583,4 +585,18 @@ public class GameController : MonoBehaviour
             list[randomIndex] = temp;
         }
     }
+
+    private void ShowVictoryPanel()
+    {
+        isGameActive = false;
+        Time.timeScale = 1f;
+        victoryPanel.SetActive(true);
+    }
+
+    public void PlayAnotherCategory()
+    {
+        GameData.returningToCategory = true;
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
