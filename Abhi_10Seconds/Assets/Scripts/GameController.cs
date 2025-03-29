@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+Ôªøusing System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -123,17 +123,17 @@ public class GameController : MonoBehaviour
             {"Pacman", "Eats dots, afraid of ghosts"},
             {"Pong", "First popular video game ever"},
             {"Snake", "Classic phone game, eats apples"},
-            {"Lara", "Tomb Raiderís first name"},
+            {"Lara", "Tomb Raider‚Äôs first name"},
             {"Doom", "Classic FPS with demons"},
             {"Halo", "Sci-fi shooter with Master Chief"},
             {"Kirby", "Cute pink puff who swallows enemies"},
             {"Sims", "Life simulation game"},
             {"Minecraft", "Blocky sandbox, build anything"},
-            {"Amongus", "Whoís the imposter?"},
+            {"Amongus", "Who‚Äôs the imposter?"},
             {"Spyro", "Purple dragon who breathes fire"},
             {"Ryu", "Fights in Street Fighter"},
-            {"Pikachu", "Iconic electric PokÈmon"},
-            {"Luigi", "Marioís taller, greener brother"},
+            {"Pikachu", "Iconic electric Pok√©mon"},
+            {"Luigi", "Mario‚Äôs taller, greener brother"},
             {"Kratos", "Angry bald guy with a red tattoo"},
             {"Portalgun", "Shoots portals (from Portal)"},
             {"Flappy", "Very annoying bird that keeps dying"},
@@ -151,27 +151,27 @@ public class GameController : MonoBehaviour
         string[,] data = {
             {"Elephant", "Largest land animal"},
             {"Giraffe", "Tall animal with a long neck"},
-            {"Penguin", "Bird that can't fly, wears a tuxedo"},
-            {"Kangaroo", "Jumps high, carries baby in a pouch"},
+            {"Penguin", "can't fly but wears tux"},
+            {"Kangaroo", "Punches like Mike Tyson"},
             {"Dolphin", "Smart sea animal that clicks and jumps"},
-            {"Cheetah", "Fastest land animal"},
+            {"Cheetah", "I am Fast AF boi"},
             {"Gorilla", "Big primate, walks on knuckles"},
-            {"Parrot", "Colorful bird that can mimic speech"},
-            {"Octopus", "Has eight arms, lives in the sea"},
-            {"Sloth", "Super slow animal that lives in trees"},
-            {"Tiger", "Big cat with orange and black stripes"},
+            {"Parrot", "Steals your words"},
+            {"Octopus", "Eight"},
+            {"Sloth", "Sid from Ice Age"},
+            {"Tiger", "Orange cat with built in barcode"},
             {"Koala", "Tree hugger from Australia"},
-            {"Whale", "Ocean giant, breathes through blowhole"},
-            {"Panda", "Eats bamboo, black and white fur"},
-            {"Camel", "Has humps, lives in deserts"},
-            {"Ostrich", "World's largest bird, can't fly"},
-            {"Zebra", "Black and white striped animal"},
+            {"Whale", "Chonky sea opera singer"},
+            {"Panda", "Dumb Bears"},
+            {"Camel", "Desert Truck"},
+            {"Ostrich", "Tall chicken that skipped leg day"},
+            {"Zebra", "Horse in prison pajamas"},
             {"Crocodile", "Big reptile with powerful jaws"},
             {"Chimpanzee", "Intelligent relative of humans"},
-            {"Bat", "The only flying mammal"},
+            {"Bat", "covid"},
             {"Hedgehog", "Small spiky animal"},
             {"Seahorse", "Fish where males carry the babies"},
-            {"Raccoon", "Night bandit with a mask-like face"},
+            {"Raccoon", "Trash Panda"},
             {"Meerkat", "Stands up to look out for danger"},
             {"Llama", "Fluffy and spits when annoyed"}
         };
@@ -185,29 +185,29 @@ public class GameController : MonoBehaviour
     private void AddCountryWords()
     {
         string[,] data = {
-            {"Germany", "Country known for Oktoberfest"},
+            {"Germany", "Oktoberfest"},
             {"Japan", "Land of the rising sun"},
-            {"Brazil", "Home of the Amazon rainforest"},
+            {"Brazil", "Amazon rainforest"},
             {"Canada", "Maple leaf on the flag"},
-            {"Egypt", "Famous for pyramids"},
+            {"Egypt", "Pyramids"},
             {"India", "Country with the Taj Mahal"},
-            {"France", "Known for Eiffel Tower and croissants"},
-            {"Italy", "Birthplace of pizza and pasta"},
+            {"France", "Croissants"},
+            {"Italy", "Mamma mia"},
             {"China", "Great Wall is here"},
-            {"Australia", "Kangaroos and koalas live here"},
+            {"Australia", "Spiders"},
             {"Russia", "Largest country in the world"},
             {"Mexico", "Known for tacos and sombreros"},
             {"Spain", "Country of flamenco and paella"},
             {"Greece", "Birthplace of democracy and Olympics"},
             {"Norway", "Famous for fjords and Vikings"},
-            {"Sweden", "IKEA, ABBA, and meatballs"},
+            {"Sweden", "IKEA and meatballs"},
             {"Argentina", "Famous for tango and Messi"},
             {"Thailand", "Known for spicy food and beaches"},
             {"Kenya", "Safari capital of the world"},
             {"SouthAfrica", "Home to Cape Town and Table Mountain"},
             {"Iceland", "Land of fire and ice"},
             {"Netherlands", "Windmills and tulips"},
-            {"Portugal", "Next to Spain, loves custard tarts"},
+            {"Portugal", "SUII"},
             {"Turkey", "Crossroads of Europe and Asia"},
             {"Switzerland", "Watches, chocolate, and neutrality"}
         };
@@ -258,229 +258,230 @@ public class GameController : MonoBehaviour
     {
         wordList.Add(new WordEntry
         {
-            fullWord = "Algorithm",
+            fullWord = "Theory",
             hints = new List<string> {
-            "Step-by-step solution",
-            "Like a recipe for computers",
-            "Used in programming and AI"
-        }
+        "Explains how something works",
+        "Often scientific",
+        "Like 'Big Bang' or 'Relativity'"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Paradox",
+            fullWord = "Fusion",
             hints = new List<string> {
-            "A logical contradiction",
-            "Seems false but may be true",
-            "Like 'This statement is false'"
-        }
+        "Combining two things into one",
+        "Happens in the sun",
+        "Opposite of fission"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Enigma",
+            fullWord = "Symbol",
             hints = new List<string> {
-            "Something mysterious or puzzling",
-            "Hard to understand",
-            "Also a famous WW2 code machine"
-        }
+        "Represents something else",
+        "Can be a letter or sign",
+        "Like $ or ‚ù§Ô∏è"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Labyrinth",
+            fullWord = "Echo",
             hints = new List<string> {
-            "Complex maze",
-            "Twisting paths, hard to escape",
-            "Found in Greek mythology"
-        }
+        "You say it, it comes back",
+        "Sound reflection",
+        "Common in canyons"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Cipher",
+            fullWord = "Orbit",
             hints = new List<string> {
-            "Secret code",
-            "Used in encryption",
-            "Requires a key to decode"
-        }
+        "Path around a planet/star",
+        "The moon does this",
+        "Related to gravity"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Obsidian",
+            fullWord = "Fractal",
             hints = new List<string> {
-            "Volcanic glass",
-            "Black and shiny",
-            "Used in crafting in Minecraft"
-        }
+        "Pattern inside a pattern",
+        "Repeats itself at every scale",
+        "Seen in nature (like snowflakes)"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Chronology",
+            fullWord = "Method",
             hints = new List<string> {
-            "Order of events",
-            "Timeline-based",
-            "Used in history and storytelling"
-        }
+        "Step-by-step way of doing something",
+        "Common in science",
+        "Like a process"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Quantum",
+            fullWord = "Signal",
             hints = new List<string> {
-            "Smallest unit in physics",
-            "Subatomic particle theory",
-            "Often used in sci-fi and tech"
-        }
+        "Sends a message",
+        "Can be wireless or visual",
+        "Phones use it"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Aesthetic",
+            fullWord = "Matrix",
             hints = new List<string> {
-            "Related to beauty",
-            "Often about visual style",
-            "Used in design and art"
-        }
+        "Grid or system",
+        "Also a sci-fi movie",
+        "Used in math"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Hypothesis",
+            fullWord = "Static",
             hints = new List<string> {
-            "Educated guess",
-            "Starting point for experiments",
-            "Needs testing to confirm"
-        }
+        "Unchanging or electric crackle",
+        "Opposite of dynamic",
+        "Often on TVs or radios"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Oxymoron",
+            fullWord = "Vision",
             hints = new List<string> {
-            "Two contradictory terms",
-            "Like 'jumbo shrimp' or 'deafening silence'",
-            "Common in poetry and humor"
-        }
+        "Sense of sight",
+        "Also means a future goal",
+        "You lose it without your eyes"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Epitome",
+            fullWord = "Logic",
             hints = new List<string> {
-            "Perfect example of something",
-            "Ideal representation",
-            "Like the poster child of something"
-        }
+        "Makes sense",
+        "Foundation of reasoning",
+        "Used in math and computers"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Synthesis",
+            fullWord = "Pattern",
             hints = new List<string> {
-            "Combining different elements",
-            "Opposite of analysis",
-            "Happens in writing and chemistry"
-        }
+        "Repeats in a sequence",
+        "You can predict it",
+        "Seen in wallpapers, rhythms, code"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Catalyst",
+            fullWord = "Source",
             hints = new List<string> {
-            "Triggers change",
-            "Speeds up a reaction",
-            "Doesnít get consumed"
-        }
+        "Starting point",
+        "Where something comes from",
+        "Often cited in research"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Obsolete",
+            fullWord = "Module",
             hints = new List<string> {
-            "No longer useful",
-            "Outdated technology",
-            "Like floppy disks or VHS tapes"
-        }
+        "A part of something bigger",
+        "Found in courses or code",
+        "Can be plugged in/out"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Mirage",
+            fullWord = "Aspect",
             hints = new List<string> {
-            "Optical illusion",
-            "Seen in deserts",
-            "Looks real but isnít"
-        }
+        "A feature or part of something",
+        "One side of a situation",
+        "Used in design and storytelling"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Binary",
+            fullWord = "Factor",
             hints = new List<string> {
-            "Made of 1s and 0s",
-            "Digital language",
-            "Has only two states"
-        }
+        "Something that influences a result",
+        "Found in math and cause/effect",
+        "Contributes to an outcome"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Pinnacle",
+            fullWord = "Context",
             hints = new List<string> {
-            "Highest point",
-            "Top of a career or achievement",
-            "Like reaching a mountain peak"
-        }
+        "Surrounding information",
+        "Helps understanding",
+        "Read in context"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Quandary",
+            fullWord = "Impulse",
             hints = new List<string> {
-            "Difficult situation",
-            "Confusing dilemma",
-            "Hard to make a decision"
-        }
+        "Sudden urge or motion",
+        "Happens in physics and behavior",
+        "Hard to resist"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Nostalgia",
+            fullWord = "Concept",
             hints = new List<string> {
-            "Sentimental longing for the past",
-            "Triggered by old songs or places",
-            "Often a warm or bittersweet feeling"
-        }
+        "An abstract idea",
+        "The base of something",
+        "Before a theory"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Ambiguous",
+            fullWord = "Impact",
             hints = new List<string> {
-            "Open to multiple meanings",
-            "Not clearly defined",
-            "Can lead to misinterpretation"
-        }
+        "A strong effect",
+        "Can be physical or metaphorical",
+        "Like a crash or influence"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Nebula",
+            fullWord = "Balance",
             hints = new List<string> {
-            "Cloud of gas in space",
-            "Birthplace of stars",
-            "Often seen in deep space photos"
-        }
+        "Not too much or too little",
+        "Physical or metaphorical",
+        "Needed in life, money, and yoga"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Conundrum",
+            fullWord = "Reason",
             hints = new List<string> {
-            "A confusing or difficult problem",
-            "No obvious solution",
-            "Like a riddle or puzzle"
-        }
+        "Why something happens",
+        "Based on facts or logic",
+        "We ask for it all the time"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Constellation",
+            fullWord = "Density",
             hints = new List<string> {
-            "Group of stars forming a pattern",
-            "Often named after myths",
-            "Used in astrology and navigation"
-        }
+        "Compactness of matter",
+        "Mass per volume",
+        "Oil floats on water because of this"
+    }
         });
         wordList.Add(new WordEntry
         {
-            fullWord = "Parallax",
+            fullWord = "Network",
             hints = new List<string> {
-            "Difference in viewpoint",
-            "Used to measure distance in space",
-            "Common in 3D games and astronomy"
-        }
+        "System of connections",
+        "Internet is one",
+        "Also social or neural"
+    }
         });
+
     }
 
 
