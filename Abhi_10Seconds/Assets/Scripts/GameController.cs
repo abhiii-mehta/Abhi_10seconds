@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
         public List<string> hints;
     }
 
+    private BGMController bgmController;
     public TMP_Text hintText;
     public TMP_Text maskedWordText;
     public TMP_InputField inputField;
@@ -36,9 +37,11 @@ public class GameController : MonoBehaviour
     private WordEntry currentWord;
     private float timer = 10f;
     private bool isGameActive = false;
-
+    
     private void Start()
     {
+        bgmController = FindFirstObjectByType<BGMController>();
+
         SetupWordList();
         shuffledList = new List<WordEntry>(wordList);
         ShuffleWordList(shuffledList);
@@ -71,6 +74,7 @@ public class GameController : MonoBehaviour
 
         timer -= Time.deltaTime;
         timerText.text = timer.ToString("F1") + "s";
+        bgmController.UpdatePitch(timer, 10f);
 
         string guess = inputField.text.Trim().ToLower();
         if (guess == currentWord.fullWord.ToLower())
@@ -87,6 +91,7 @@ public class GameController : MonoBehaviour
         {
             EndGame();
         }
+
     }
 
     private void SetupWordList()
@@ -482,6 +487,8 @@ public class GameController : MonoBehaviour
 
     private void PickNextWord()
     {
+        bgmController.PlayFromStart();
+
         if (currentWordIndex >= shuffledList.Count)
         {
             ShowVictoryPanel();
@@ -529,10 +536,12 @@ public class GameController : MonoBehaviour
 
     private void EndGame()
     {
+       
         isGameActive = false;
         Time.timeScale = 1f;
 
         feedbackText.text = $"Time's up! The word was: {currentWord.fullWord.ToUpper()}";
+        bgmController.Stop();
         StartCoroutine(ShowGameOverAfterDelay(2f));
     }
 
@@ -598,5 +607,6 @@ public class GameController : MonoBehaviour
         GameData.returningToCategory = true;
         SceneManager.LoadScene("MainMenu");
     }
+
 
 }

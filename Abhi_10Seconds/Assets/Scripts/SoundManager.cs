@@ -7,13 +7,14 @@ public class SoundManager : MonoBehaviour
     public AudioMixer audioMixer;
     public Slider masterSlider;
     public Slider musicSlider;
-    public Slider sfxSlider;
+    public AudioSource bgmSource;
+    public float startingPitch = 1f;
+    public float maxPitch = 1.5f;
 
     private void Start()
     {
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     public void SetMasterVolume(float value)
@@ -26,8 +27,8 @@ public class SoundManager : MonoBehaviour
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1)) * 20);
     }
 
-    public void SetSFXVolume(float value)
-    {
-        audioMixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1)) * 20);
-    }
+   
+
+    
+
 }
